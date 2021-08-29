@@ -548,6 +548,64 @@ function hasSync(keyPath: KeyPath): boolean {
 }
 
 /**
+ * Gets all keys in Settings. For sync,
+ * use [[keysSync|keysSync()]].
+ *
+ * @category Core
+ * @returns A promise which resolves to all keys in Settings.
+ * @example
+ *
+ *     // Given:
+ *     //
+ *     // {
+ *     //   "color": {
+ *     //     "name": "cerulean",
+ *     //     "code": {
+ *     //       "rgb": [0, 179, 230],
+ *     //       "hex": "#003BE6"
+ *     //     }
+ *     //   }
+ *     // }
+ *
+ *     const keys = await settings.keys();
+ *     // => ['color']
+ */
+async function keys(): Promise<string[]> {
+  const obj = await loadSettings();
+
+  return Promise.resolve(Object.keys(obj));
+}
+
+/**
+ * Gets all keys in Settings. For async,
+ * use [[keys|keys()]].
+ *
+ * @category Core
+ * @returns All keys in Settings.
+ * @example
+ *
+ *     // Given:
+ *     //
+ *     // {
+ *     //   "color": {
+ *     //     "name": "cerulean",
+ *     //     "code": {
+ *     //       "rgb": [0, 179, 230],
+ *     //       "hex": "#003BE6"
+ *     //     }
+ *     //   }
+ *     // }
+ *
+ *     const keys = settings.keysSync();
+ *     // => ['color']
+ */
+function keysSync(): string[] {
+  const obj = loadSettingsSync();
+
+  return Object.keys(obj);
+}
+
+/**
  * Gets all settings. For sync, use
  * [[getSync|getSync()]].
  *
@@ -960,13 +1018,15 @@ function unsetSync(keyPath?: KeyPath): void {
 }
 
 export = {
-  file,
   configure,
-  reset,
-  has,
-  hasSync,
+  file,
   get,
   getSync,
+  has,
+  hasSync,
+  keys,
+  keysSync,
+  reset,
   set,
   setSync,
   unset,
