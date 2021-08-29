@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.1.0](https://github.com/nathanbuchar/electron-settings/compare/v4.0.3...v4.1.0) (2021-08-29)
+
+
+### Features
+
+* add `keys` and `keysSync` ([cb6baee](https://github.com/nathanbuchar/electron-settings/commit/cb6baee4e2a432056de28dc56ca996eb4f56c231))
+* add `settings` and `settingsSync` ([851536f](https://github.com/nathanbuchar/electron-settings/commit/851536fb2de82bbecf022284c79d4ae38b8948d6))
+
 ### [4.0.3](https://github.com/nathanbuchar/electron-settings/compare/v4.0.2...v4.0.3) (2021-08-29)
 
 ### [4.0.2](https://github.com/nathanbuchar/electron-settings/compare/v4.0.1...v4.0.2) (2020-06-27)
