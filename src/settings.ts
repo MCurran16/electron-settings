@@ -888,6 +888,78 @@ function setSync(...args: [SettingsObject] | [KeyPath, SettingsValue]): void {
 }
 
 /**
+ * Gets the Settings object. For sync,
+ * use [[settingsSync|settingsSync()]].
+ *
+ * @category Core
+ * @returns A promise which resolves the Settings object.
+ * @example
+ *
+ *     // Given:
+ *     //
+ *     // {
+ *     //   "color": {
+ *     //     "name": "cerulean",
+ *     //     "code": {
+ *     //       "rgb": [0, 179, 230],
+ *     //       "hex": "#003BE6"
+ *     //     }
+ *     //   }
+ *     // }
+ *
+ *     const settings = await settings.settings();
+ *     // =>
+ *     // {
+ *     //   "color": {
+ *     //     "name": "cerulean",
+ *     //     "code": {
+ *     //       "rgb": [0, 179, 230],
+ *     //       "hex": "#003BE6"
+ *     //     }
+ *     //   }
+ *     // }
+ */
+async function settings(): Promise<SettingsObject> {
+  return loadSettings();
+}
+
+/**
+ * Gets the Settings object. For sync,
+ * use [[settings|settings()]].
+ *
+ * @category Core
+ * @returns The Settings object.
+ * @example
+ *
+ *     // Given:
+ *     //
+ *     // {
+ *     //   "color": {
+ *     //     "name": "cerulean",
+ *     //     "code": {
+ *     //       "rgb": [0, 179, 230],
+ *     //       "hex": "#003BE6"
+ *     //     }
+ *     //   }
+ *     // }
+ *
+ *     const settings = settings.settingsSync();
+ *     // =>
+ *     // {
+ *     //   "color": {
+ *     //     "name": "cerulean",
+ *     //     "code": {
+ *     //       "rgb": [0, 179, 230],
+ *     //       "hex": "#003BE6"
+ *     //     }
+ *     //   }
+ *     // }
+ */
+function settingsSync(): SettingsObject {
+  return loadSettingsSync();
+}
+
+/**
  * Unsets all settings. For sync, use [[unsetSync|unsetSync()]].
  *
  * @category Core
@@ -1029,6 +1101,8 @@ export = {
   reset,
   set,
   setSync,
+  settings,
+  settingsSync,
   unset,
   unsetSync,
 };
